@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+		<style>
+			*{
+				margin: 0;padding: 0;
+			}
+			.box{
+				width: 450px;
+				height: 500px;
+				background: #525A5A;
+			}
+			.content{
+				width: 90%;
+				margin: 0 auto;
+			}
+			.content h3{
+				color:white;
+				padding-top: 30px;
+			}
+			.content .p1{
+				margin-top: 20px;
+				color: white;
+			}
+			.content .p2{
+				margin-top: 10px;
+				color: white;
+			}
+			.clearfix:after{
+				display: block;
+				clear: both;
+				content: "";
+			}
+			.content .p1 .span1{
+				float: left;
+			}
+			.content .p1 .span2{
+				float: right;
+			}
+			.one {
+				position: relative;
+				margin-top: 10px;
+			}
+			.one .div1{
+				width: 85%;
+				height: 50px;
+				border: none;
+				float: left;
+				background: white;
+				font-size: 18px;
+				line-height: 50px;
+				padding-left: 10px;
+			}
+			.two .div2{
+				width: 85%;
+				height: 50px;
+				border: none;
+				float: left;
+				background: white;
+				font-size: 18px;
+				line-height: 50px;
+				padding-left: 10px;
+			}
+			.one .wan{
+				position: absolute;
+				right: 60px;
+				top:13px;
+				font-size: 18px;
+				font-weight: bold;
+			}
+			.two{
+				position: relative;
+				margin-top: 10px;
+			}
+			.two .wan1{
+				position: absolute;
+				right: 58px;
+				top:13px ;
+				font-size: 18px;
+				font-weight: bold;
+				z-index: 2;
+			}
+			.one .ss1{
+				width: 12%;
+				height: 50px;
+				box-sizing: border-box;
+				float: left;
+				background: white;
+				text-align: center;
+				line-height: 50px;
+				border-left: 1px solid #999999;
+			}
+			.two .ss2{
+				width: 12%;
+				height: 50px;
+				box-sizing: border-box;
+				float: left;
+				background: white;
+				text-align: center;
+				line-height: 50px;
+				border-left: 1px solid #999999;
+			}
+			.div1{
+
+			}
+			.btn{
+				width: 100%;
+				height: 40px;
+				color: white;
+				background: #0094EF;
+				margin-top: 10px;
+				border: none;
+				font-size: 18px;
+			}
+			.ul1,.ul2{
+				width: 100%;
+				background: white;
+				list-style: none;
+				position: absolute;
+				top: 51px;
+				left: 0;
+				border-top: 1px solid #EEEEEE;
+				z-index: 3;
+				display: none;
+				
+			}
+			
+
+			.ul1 li,.ul2 li{
+				line-height: 30px;
+				padding-left: 5px;
+			}
+			.ul1 li:hover,.ul2 li:hover{
+				background: #C6D6E7;
+			}
+			.p3{
+				width: 100%;
+				color: #EEEEEE;
+				text-align: center;
+				margin-top:10px ;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="content">
+				<h3>快速搜索消费货款</h3>
+				<p class="p1 clearfix"><span class="span1">货款金额:</span><span class="span2">不足一万可用小数表示</span></p>
+				<div class="one  clearfix">				
+						<div class="div1"></div>
+						<i  class="wan">万元</i>
+					<div class="ss1">
+						<span class="fa fa-angle-down"></span>
+					</div>
+					<ul class="ul1">
+						<li>5万元</li>
+						<li>10万元</li>
+						<li>15万元</li>
+						<li>20万元</li>
+						<li>25万元</li>
+						<li>30万元</li>
+					</ul>
+				</div>
+				<p class="p2">货款期限：</p>
+				<div class="two  clearfix">
+						<div class="div2"></div>
+						<i class="wan1">月</i>
+					<div class="ss2">
+						<span class="fa fa-angle-down"></span>
+					</div>
+				
+					<ul class="ul2">
+						<li>6<span>个月</span></li>
+						<li>1<span>年</span></li>
+						<li>18<span>个月</span></li>
+						<li>2<span>年</span></li>
+						<li>3<span>年</span></li>
+						<li>5<span>年</span></li>
+						<li>10<span>年</span></li>
+					</ul>
+				</div>
+					<input type="button" value="搜索一下" class="btn"/>
+					<p class="p3">9164种信货产品 2000家银行 1403家小货公司</p>
+			</div>
+			</div>
+			
+			
+		</div>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script>
+			$(function(){
+				$(".ss1").click(function(){
+					$(".ul1").toggle()
+				})
+				$(".ul1>li").click(function(){
+					sp=$(this).children("span").html()
+					$(".one .wan").html(sp)
+					txt=parseInt($(this).html());
+					console.log(txt)
+					$(".div1").html(txt)
+					$(".ul1").toggle()
+				})
+				$(".ss2").click(function(){
+					$(".ul2").toggle()
+				})
+				$(".ul2>li").click(function(){
+					sp1=$(this).children("span").html()
+					$(".two .wan1").html(sp1)
+					txt1=parseInt($(this).html());
+					$(".div2").html(txt1);
+					$(".ul2").toggle()
+				})
+				
+			})
+		</script>
+	</body>
+</html>
